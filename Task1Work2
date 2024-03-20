@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Work2 {
+    public static void main(String[] args) {
+        System.out.println("Введите 2 целых числа:");
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        System.out.println("Сумма целых чисел = " + (a + b));
+
+        int c = a - b;
+        System.out.println("Разница между введёнными целыми числами = " + Math.abs(c));
+
+        for (int i = a; i <= b; i++) {
+            System.out.print(i);
+        }
+        for (int i = b; i <= a; i++) {
+            System.out.print(i);
+        }
+
+
+    }
+
+
+}
