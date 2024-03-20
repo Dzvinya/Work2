@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class Task8 {
+
+    //Даны стороны двух треугольников.Найти сумму их периметров и сумму их площадей.
+    // (Определить процедуру для расчета периметра и площади треугольника по его сторонам.)
+    public static void main(String[] args) {
+
+
+        System.out.println("Введите  значения  сторон двух  треугольников:\n");
+        Scanner sc  = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        int a1 = sc.nextInt();
+        int b1 = sc.nextInt();
+        int c1  = sc.nextInt();
+
+        //  Условие  существования  треугольника:
+        // "Стороны  треугольников  - положительные  числа"
+        // "Треугольник существует только тогда, когда сумма любых двух его сторон больше третьей"
+        //  Требуется сравнить каждую сторону с суммой двух других.
+
+        double s1 =  Square(Perimetr(a,b,c),a,b,c);
+        double s2 = Square(Perimetr(a1,b1,c1),a1,b1,c1);
+
+
+            if (a > 0 && b > 0 && c > 0 && a + b > c && a + c > b && b + c > a) {
+
+                        System.out.println(("Треугольник №1 существует\n") + "P1 = "  +  Perimetr(a,b,c) +"\n" + "S1 = " + s1 + "\n");
+
+                    } else {
+                        System.out.println("Треугольник №1 не существует");
+                    }
+
+            if (a1>0 && b1>0 && c1>0 && a1 + b1 > c1 && a1 + c1 > b1 && b1 + c1 > a1) {
+
+                        System.out.println("Треугольник №2 существует\n" + "P2 = " + Perimetr(a1,b1,c1) + "\n" + "S2 = " + s2 + "\n" + "Сумма периметров = " + (Perimetr(a,b,c) + Perimetr(a1,b1,c1))+ "\n" + "Сумма площадей = " + (s1 + s2));
+
+                    } else {
+                        System.out.println("Треугольник №2 не существует");
+                    }
+    }
+
+    public static int Perimetr(int a, int b, int c){
+        return a + b + c;
+    }
+
+    public static double Square(int p, int a, int b, int c) {
+        int  pp = p/2;
+        return Math.sqrt(pp  *  (pp - a)  * (pp -  b) * (pp - c));
+
+    }
+}
